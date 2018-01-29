@@ -4,7 +4,7 @@ nodes=$3
 wall=$4
 first=False
 first=$5
-cation=SOD
+cation=XXX
 anion=CLA
 
 ./pbsgen.sh $name $initial $nodes $wall $first $cation $anion> pbsjob.pbs
