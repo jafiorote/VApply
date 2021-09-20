@@ -55,28 +55,15 @@ echo " "
 echo "#"output params 
 echo binaryoutput         	no 
 echo outputname           	$name.$srun 
-if [[ $crash != False ]]
-    then
-        echo outputenergies 10000
-        echo outputtiming 10000
-        echo outputpressure 10000
-        echo binaryrestart yes
-        echo dcdfile $name.$srun.dcd
-        echo dcdfreq 5000
-        echo XSTFreq 5000
-        echo restartname $name.$srun"r"
-        echo restartfreq 5000
-    else 
-        echo outputenergies 10000
-        echo outputtiming 10000
-        echo outputpressure 10000
-        echo binaryrestart yes
-        echo dcdfile $name.$srun.dcd
-        echo dcdfreq 5000
-        echo XSTFreq 5000
-        echo restartname $name.$srun"r" 
-        echo restartfreq 5000
-fi
+echo outputenergies 10000
+echo outputtiming 10000
+echo outputpressure 10000
+echo binaryrestart yes
+echo dcdfile $name.$srun.dcd
+echo dcdfreq 5000
+echo XSTFreq 5000
+echo restartname $name.$srun"r"
+echo restartfreq 5000
 
 echo ""#"reading serials
 source serialfile.$prev.tcl"
@@ -127,7 +114,7 @@ if [[ $crash != False ]]
         echo set run_steps 9920
     else
         echo set mini_steps 0
-        echo set run_steps 150000
+        echo set run_steps 250000
 fi
 echo " "
 echo TclForces            on

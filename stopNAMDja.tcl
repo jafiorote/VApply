@@ -135,7 +135,7 @@ proc calcforces {} {
         foreach a $NEGdown {
             if { [lindex $coor($a) 2] > [expr [lindex $coor($gzidref) 2] + $tolerance] } {
 
-                write_serial_file $zidref $POSup $POSdown $NEGup $NEGdown
+                write_serial_file $n_run $zidref $POSup $POSdown $NEGup $NEGdown
                 write_time_file $n_run $total_time $time
 
                 print "NAMD will be stopped because conduction event caused by serial $a NEGATIVE DOWN --> UP"

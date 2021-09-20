@@ -12,14 +12,31 @@ if [ -z "$6" ]
     then
         depend=False
 fi
-cation=XXX
-anion=XXX
+cation=
+anion=
 
 ./pbsgen.sh $name $initial $nodes $wall $first $cation $anion> pbsjob.pbs
 
+#vela
+#if [[ $depend == False ]]
+    #then
+        #/usr/bin/qsub pbsjob.pbs
+    #else
+        #/usr/bin/qsub pbsjob.pbs -W depend=afterany:$depend
+#fi
+
+##cosmos CPU
 if [[ $depend == False ]]
     then
-        /usr/bin/qsub pbsjob.pbs
+        /usr/local/bin/qsub pbsjob.pbs -q unb
     else
-        /usr/bin/qsub pbsjob.pbs -W depend=afterany:$depend
+        /usr/local/bin/qsub pbsjob.pbs -q unb -W depend=afterany:$depend
 fi
+
+##cosmos GPU
+#if [[ $depend == False ]]
+    #then
+        #/usr/local/bin/qsub pbsjob.pbs -q gpu
+    #else
+        #/usr/local/bin/qsub pbsjob.pbs -q gpu -W depend=afterany:$depend
+#fi
